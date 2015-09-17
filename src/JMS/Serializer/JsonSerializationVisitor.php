@@ -59,6 +59,11 @@ class JsonSerializationVisitor extends GenericSerializationVisitor
             // serialized to { } while a mere array would be serialized to [].
             return new \ArrayObject();
         }
+        
+        if (empty($result))
+        {
+            return null;
+        }
 
         return $result;
     }
