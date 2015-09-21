@@ -173,6 +173,19 @@ abstract class GenericSerializationVisitor extends AbstractVisitor
     {
         return $this->root;
     }
+    
+    
+    /**
+     * Allows you to replace existing data on the current object/root element.
+     *
+     * @param string $key
+     * @param scalar|array|null $value This value must either be a regular scalar, or an array.
+     *                                 It must not contain any objects anymore.
+     */
+    public function replaceData($key, $value)
+    {
+        $this->data[$key] = $value;
+    }
 
     /**
      * @param array|\ArrayObject $data the passed data must be understood by whatever encoding function is applied later.
